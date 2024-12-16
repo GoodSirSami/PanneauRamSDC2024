@@ -1,0 +1,71 @@
+{
+    "version": "2.0.0",
+    "tasks": 
+    [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++ build project RPI",
+            "command": "/usr/src/RaspberryPi/piBin/arm-linux-gnueabihf-g++",
+            "args": [
+                "-g",
+                "-O0",
+                "-Wall",
+                "-Wno-deprecated-declarations",
+                "${workspaceFolder}/*.c*",
+                "-o",
+                "${workspaceFolderBasename}",
+                "-lpthread",
+                "-lrt",
+                "-lm",
+                "-lmosquitto",
+                "-lmosquittopp",
+                "-lgpiod",
+                "-lthreadcom",
+                "-L/usr/src/RaspberryPi/piLib",
+                "-L./"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "compiler: /usr/src/RaspberryPi/piBin/arm-linux-gnueabihf-g++"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++ compile project RPI",
+            "command": "/usr/src/RaspberryPi/piBin/arm-linux-gnueabihf-g++",
+            "args": [
+                "-g",
+                "-O0",
+                "-Wall",
+                "-c",
+                "${workspaceFolder}/*.c*",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "compiler: /usr/bin/g++"
+        },
+        {
+            "type": "shell",
+            "label": "C/C++: clean project RPI",
+            "command": "rm -f ${workspaceFolder}/*.o ${workspaceFolderBasename}",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        }
+    ]
+}
